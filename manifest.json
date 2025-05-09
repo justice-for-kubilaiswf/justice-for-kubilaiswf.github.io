@@ -1,0 +1,50 @@
+{
+  "name": "Kubilay Karaçar - Software Developer",
+  "short_name": "Kubilay Karaçar",
+  "description": "Hey there! I'm Kubilay Karaçar, but most people online know me as kubilaiswf. This is my personal portfolio site where I share a bit about myself and my projects.",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "scope": "/",
+  "orientation": "portrait",
+  "lang": "tr-TR",
+  "categories": ["portfolio", "development", "personal", "software engineer", "developer"],
+  "keywords": ["kubilay karaçar", "kubilay", "kubilaiswf", "developer", "software engineer", "machine learning", "python", "web development"],
+  "icons": [
+    {
+      "src": "ico/android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "ico/apple-icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "ico/favicon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "ico/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "ico/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "images/preview.webp",
+      "sizes": "600x600",
+      "type": "image/webp",
+      "label": "Kubilay Karaçar Portfolio Homepage"
+    }
+  ]
+}

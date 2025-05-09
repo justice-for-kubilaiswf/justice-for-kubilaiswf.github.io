@@ -1,0 +1,345 @@
+:root {
+    /* Dark theme variables (default) */
+    --bg-color: #121212;
+    --text-color: #d2d8e2;
+    --secondary-text: #a0a0a8;
+    --accent-color: #74747c;
+    --card-bg: #232324;
+    --card-border: rgba(255, 255, 255, 0.03);
+    --card-shadow: rgba(0, 0, 0, 0.15);
+    --header-color: #74747c;
+    --link-color: #b5bbc3;
+    --link-hover: #f3f6fc;
+    --social-bg: rgba(255, 255, 255, 0.03);
+    --theme-transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease, box-shadow 0.5s ease;
+    --navbar-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Light theme variables - optimized design */
+html[data-theme="light"] {
+    --bg-color: #f0f2f5; /* Daha yumuşak gri tonu */
+    --text-color: #2d2d35;
+    --secondary-text: #4a4a54;
+    --accent-color: #555559; /* Changed from blue to dark gray */
+    --card-bg: #ffffff;
+    --card-border: rgba(0, 0, 0, 0.08); /* Daha belirgin sınır */
+    --card-shadow: rgba(0, 0, 0, 0.06);
+    --header-color: #555559; /* Changed from blue to dark gray */
+    --link-color: #424249;
+    --link-hover: #1e1e24;
+    --social-bg: rgba(0, 0, 0, 0.02);
+    --navbar-border: rgba(0, 0, 0, 0.15); /* Navbar için daha koyu sınır */
+}
+
+/* Theme toggle styles - moved to bottom-right with fixed position */
+.theme-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    cursor: pointer;
+    z-index: 9999; /* Increased z-index to ensure it's always on top */
+    transition: all 0.3s ease; /* Faster transition for better responsiveness */
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    opacity: 1 !important; /* Force opacity to always be 1 */
+    visibility: visible !important; /* Force visibility to always be visible */
+    transform: translateZ(0);
+}
+
+.theme-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Improve the clickable area for the sun/moon icon */
+.theme-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: var(--text-color);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    transform-origin: center;
+    position: absolute;
+}
+
+/* Make both icons completely centered inside the button */
+.theme-toggle .sun-icon,
+.theme-toggle .moon-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Animation for icon transitions */
+html[data-theme="dark"] .sun-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0);
+}
+
+html[data-theme="dark"] .moon-icon {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(-45deg) scale(0);
+}
+
+html[data-theme="light"] .sun-icon {
+    opacity: 0;
+    transform: translate(-50%, -50%) rotate(45deg) scale(0);
+}
+
+html[data-theme="light"] .moon-icon {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(0);
+}
+
+/* Apply theme colors to elements */
+body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-color) !important;
+    transition: var(--theme-transition);
+}
+
+h1 {
+    color: var(--header-color);
+}
+
+h1::after {
+    background-color: var(--header-color);
+}
+
+ul#repo-list li {
+    background-color: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 12px var(--card-shadow);
+}
+
+ul#repo-list a {
+    color: var(--link-color);
+}
+
+ul#repo-list a:hover {
+    color: var(--link-hover);
+}
+
+ul#repo-list p {
+    color: var(--secondary-text);
+}
+
+social-icons a {
+    color: var(--text-color);
+    background: var(--social-bg);
+    border: 1px solid var(--card-border);
+}
+
+.social-icons a:hover {
+    color: var(--link-hover);
+}
+
+.lead {
+    color: var(--secondary-text);
+}
+
+.navbar {
+    border-bottom: none; /* Başlangıçta kenarlık olmasın */
+    transition: var(--theme-transition);
+}
+
+.navbar .nav-link {
+    color: var(--text-color);
+    transition: all 0.4s ease;
+    position: relative;
+}
+
+.navbar .nav-link:hover {
+    color: var(--link-hover);
+}
+
+.navbar .nav-link.active {
+    color: var(--link-hover);
+    font-weight: 500;
+}
+
+.navbar .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent-color);
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+}
+
+.navbar .nav-link:hover::after,
+.navbar .nav-link.active::after {
+    width: 80%;
+}
+
+/* Navbar scrolled state */
+.navbar.scrolled {
+    border-bottom: 1px solid var(--navbar-border); /* Kaydırma durumunda kenarlık ekle */
+}
+
+.contact-link {
+    color: var(--text-color);
+}
+
+.contact-link:hover {
+    color: var(--link-hover);
+}
+
+/* Mobile navbar theming */
+@media (max-width: 768px) {
+    .navbar-collapse {
+        background-color: var(--bg-color) !important;
+        border-top: 1px solid var(--navbar-border);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    html[data-theme="light"] .navbar-collapse {
+        background-color: rgba(240, 242, 245, 0.95) !important;
+        border-top: 1px solid var(--navbar-border);
+    }
+}
+
+/* Light theme specific optimizations */
+html[data-theme="light"] ul#repo-list li {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background-color: #fff;
+}
+
+/* Beyaz tema için scroll-down-arrow renk ayarı */
+html[data-theme="light"] .scroll-down-arrow svg path {
+    stroke: rgba(0, 0, 0, 0.8);
+    filter: none;
+}
+
+html[data-theme="light"] .scroll-down-arrow svg {
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+}
+
+html[data-theme="light"] ul#repo-list li::before {
+    background: linear-gradient(180deg, #6d6d75, #555559); /* Changed from blue to dark gray */
+    opacity: 0.8;
+}
+
+html[data-theme="light"] ul#repo-list li:hover {
+    transform: translateY(-7px) scale(1.01);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+html[data-theme="light"] .social-icons a {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="light"] .social-icons a:hover {
+    border: 1px solid rgba(85, 85, 89, 0.3); /* Changed from blue to dark gray */
+    box-shadow: 0 5px 15px rgba(85, 85, 89, 0.2);
+}
+
+html[data-theme="light"] .social-icons a::before {
+    background: linear-gradient(135deg,
+        rgba(85, 85, 89, 0.05) 0%,
+        rgba(85, 85, 89, 0.1) 50%,
+        rgba(85, 85, 89, 0.05) 100%); /* Changed from blue to dark gray */
+}
+
+html[data-theme="light"] .social-icons a::after {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+html[data-theme="light"] .navbar {
+    background-color: rgba(240, 242, 245, 0.8) !important; /* Hafif opak arka plan */
+    border-bottom: none !important; /* Başlangıçta kenarlık olmasın */
+    backdrop-filter: blur(8px);
+    height: 60px; /* Sabit yükseklik */
+    min-height: 60px; /* Minimum yükseklik */
+    max-height: 60px; /* Maksimum yükseklik */
+}
+
+html[data-theme="light"] .navbar.scrolled {
+    background: rgba(240, 242, 245, 0.85) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.1) !important;
+    border-bottom: 1px solid var(--navbar-border) !important;
+    height: 60px; /* Sabit yükseklik */
+    min-height: 60px; /* Minimum yükseklik */
+    max-height: 60px; /* Maksimum yükseklik */
+}
+
+html[data-theme="light"] .navbar .nav-link {
+    color: #333; /* Daha koyu metin rengi */ 
+}
+
+html[data-theme="light"] .navbar .nav-link:hover {
+    color: #555559; /* Changed from blue to dark gray */
+    text-shadow: none;
+}
+
+html[data-theme="light"] .navbar .nav-link::after {
+    background-color: #555559; /* Belirgin alt çizgi */
+}
+
+html[data-theme="light"] .nav-transparent.scrolled {
+    background: rgba(240, 242, 245, 0.85) !important;
+    backdrop-filter: blur(2px) !important;
+    -webkit-backdrop-filter: blur(2px) !important;
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.1) !important;
+    border-bottom: 1px solid var(--navbar-border);
+}
+
+html[data-theme="light"] .section-title::after {
+    background: linear-gradient(90deg, transparent, #555559, transparent); /* Changed from blue to dark gray */
+}
+
+html[data-theme="light"] .contact-link:hover {
+    color: #555559; /* Changed from blue to dark gray */
+    text-shadow: none;
+    box-shadow: 0 0 10px rgba(85, 85, 89, 0.2);
+}
+
+/* Particles background adjustment */
+html[data-theme="light"] #particles-js {
+    background: var(--bg-color);
+    opacity: 0.7;
+}
+
+#particles-js {
+    background: var(--bg-color);
+    transition: background-color 0.5s ease;
+}
+
+@keyframes themeChange {
+    0% {
+        filter: brightness(1);
+    }
+    50% {
+        filter: brightness(1.2);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+
+/*
+
+design by
+ _        _    _ _      _            __ 
+| |___  _| |__(_) |__ _(_)____ __ __/ _|
+| / / || | '_ \ | / _` | (_-< V  V /  _|
+|_\_\\_,_|_.__/_|_\__,_|_/__/\_/\_/|_|  
+
+*/
