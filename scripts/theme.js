@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Function to set the theme
     function setTheme(theme) {
         htmlElement.setAttribute("data-theme", theme);
-        localStorage.setItem("theme", theme);
-                
+        localStorage.setItem("currentTheme", theme); // Store theme with consistent name used in language-redirect.js
+        
         // Remove the animation class after animation completes
         setTimeout(() => {
             document.body.classList.remove("theme-transition");
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
     // Check for saved theme preference or use system preference
-    const savedTheme = localStorage.getItem("theme");
+    const savedTheme = localStorage.getItem("currentTheme"); // Using the same key as language-redirect.js
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     
     if (savedTheme) {
@@ -30,7 +30,9 @@ document.addEventListener("DOMContentLoaded", () => {
         setTheme(savedTheme);
     } else {
         // Otherwise use system preference
-        setTheme(prefersDark ? "dark" : "light");
+        const defaultTheme = prefersDark ? "dark" : "light";
+        setTheme(defaultTheme);
+        localStorage.setItem("currentTheme", defaultTheme); // Ensure it's stored with the correct key
     }
     
     // Add click event to theme toggle button - ensure the entire button is clickable

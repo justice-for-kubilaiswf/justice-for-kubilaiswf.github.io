@@ -1,0 +1,84 @@
+/* Language Switcher Styles */
+.language-switcher {
+    position: fixed;
+    top: 5px;
+    right: 20px;
+    z-index: 1100;
+    background-color: rgba(18, 18, 18, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    box-shadow: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.language-switcher:hover {
+    background-color: rgba(30, 30, 30, 0.6);
+}
+
+.language-option {
+    color: #9ea6b3;
+    text-decoration: none;
+    padding: 2px 4px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.language-option:hover {
+    color: #fff;
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+.language-option.active {
+    color: #fff;
+    font-weight: 600;
+}
+
+.language-separator {
+    color: #535353;
+    margin: 0 4px;
+}
+
+/* Light theme adjustments */
+html[data-theme="light"] .language-switcher {
+    background-color: rgba(248, 248, 248, 0.25);
+    box-shadow: none;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+html[data-theme="light"] .language-switcher:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+html[data-theme="light"] .language-option {
+    color: #667085;
+}
+
+html[data-theme="light"] .language-option:hover {
+    color: #333;
+}
+
+html[data-theme="light"] .language-option.active {
+    color: #000;
+}
+
+html[data-theme="light"] .language-separator {
+    color: #ccc;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .language-switcher {
+        top: 10px;
+        right: 15px;
+        font-size: 12px;
+        padding: 4px 10px;
+        opacity: 0.8;
+    }
+}
