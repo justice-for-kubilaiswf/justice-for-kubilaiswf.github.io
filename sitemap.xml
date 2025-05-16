@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
    <url>
-      <loc>https://kubilaiswf.com/index.html</loc>
-      <xhtml:link rel="alternate" hreflang="tr" href="https://kubilaiswf.com/index-tr.html"/>
-      <xhtml:link rel="alternate" hreflang="en" href="https://kubilaiswf.com/index.html"/>
+      <loc>https://kubilaiswf.com/</loc>
+      <xhtml:link rel="alternate" hreflang="tr" href="https://kubilaiswf.com/tr"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://kubilaiswf.com/"/>
       <lastmod>2025-05-16</lastmod>
       <changefreq>monthly</changefreq>
       <priority>1.0</priority>
    </url>
    <url>
-      <loc>https://kubilaiswf.com/index-tr.html</loc>
-      <xhtml:link rel="alternate" hreflang="tr" href="https://kubilaiswf.com/index-tr.html"/>
-      <xhtml:link rel="alternate" hreflang="en" href="https://kubilaiswf.com/index.html"/>
+      <loc>https://kubilaiswf.com/tr</loc>
+      <xhtml:link rel="alternate" hreflang="tr" href="https://kubilaiswf.com/tr"/>
+      <xhtml:link rel="alternate" hreflang="en" href="https://kubilaiswf.com/"/>
       <lastmod>2025-05-16</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.9</priority>

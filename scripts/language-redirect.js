@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
                 
                 // Store the language choice
-                const targetLanguage = this.getAttribute('href').includes('index-tr.html') ? 'tr' : 'en';
+                const targetLanguage = this.getAttribute('href').includes('/tr') ? 'tr' : 'en';
                 localStorage.setItem('userLangChoice', targetLanguage);
                 
                 // Store the theme (in a separate variable for clarity)
@@ -37,13 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (!hasMadeChoice) {
         // First-time visitor with Turkish browser language
-        if (userLang.startsWith('tr') && !currentPath.includes('index-tr.html')) {
+        if (userLang.startsWith('tr') && currentPath !== '/tr') {
             localStorage.setItem('userLangChoice', 'tr');
-            window.location.href = '/index-tr.html';
-        } else if (!userLang.startsWith('tr') && currentPath.includes('index-tr.html')) {
+            window.location.href = '/tr';
+        } else if (!userLang.startsWith('tr') && currentPath === '/tr') {
             // First-time visitor with non-Turkish browser on Turkish page
             localStorage.setItem('userLangChoice', 'en');
-            window.location.href = '/index.html';
+            window.location.href = '/';
         }
     }
     
